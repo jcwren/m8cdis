@@ -59,7 +59,7 @@ clean:
 	rm -f $(BINARY) $(BINARY).exe .depend *.o core tags ctags $(BINARY).exe.stackdump
 
 propset:
-	svn propset svn:keywords "Id Revision Author Date HeadURL" *.c *.h Makefile
+	svn propset svn:keywords "Id Revision Author Date HeadURL" *.c *.h Makefile README
 
 #
 #  Include the .depend file so we have the list of dependencies
