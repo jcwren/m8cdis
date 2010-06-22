@@ -1,0 +1,96 @@
+#
+#  $Id: README 43 2010-06-22 18:17:05Z jcw $
+#  $Revision: 43 $
+#  $Date: 2010-06-22 14:17:05 -0400 (Tue, 22 Jun 2010) $
+#  $Author: jcw $
+#  $HeadURL: http://tinymicros.com/svn_public/psoc/disassembler/trunk/README $
+#
+
+This code is released under the "Do whatever the heck you like with it"
+license.  All this GPL, Left This, BSD whatever is just too damned complicated
+to keep up with.  Use it as you will, for what you will, and understand that I
+make no warranty as to the suitability, usefulness, blah blah blah about it.
+
+If you feel it's worthy of a donation, my Paypal address is jcwren@jcwren.com
+
+Sorry for the quality of documentation in this release.  At some point I'd
+like to expand this, maybe write a man page or something.  Mostly I was trying
+to get this done and actually fix the problem I needed a disassembler to find.
+
+This is a quick'n'dirty disassembler for the PSoC 1 family of processors.  It
+is intended to work with a .hex and .mp file produced by the ImageCraft tool
+chain (later versions will not require the .mp file to be present).  While the
+PSoC Designer environment will show disassembled code in the debugger, the
+debugger can only be invoked if you have it connected.  Unfortunately, I can't
+use the debugger because the footprint required for the adapter is too large
+for my board.  To work around this, I wrote this disassembler.
+
+In addition to disassembling the .hex file, a map is produced showing what
+sections of memory are of what type (instruction, constants, configuration
+data, EEPROM, etc).  A hex dump of the image can also be produced with an
+ASCII display to the side.
+
+If a .hint file is present, symbols will be loaded from it to allow additional
+annotation.  There is also a '-x' option that will add symbols built into
+m8cdis for the SSC call registers and the interrupt vector names.
+
+For large memory models, register bank tracking is done to try to determine
+what bank the current access will occur in.  In case it is incorrect, any
+additional labels that refer to RAM are AND'ed with 0xff and printed as a
+comment.
+
+The disassembler "knows" the names of the various internal locations in user
+and configuration memory.  Currently, only the CY8C24894 processor is
+supported.  BUT DON'T STOP READING!  Adding registers for other processors is
+fairly painless, mostly involving cut'n'paste from the datasheet.  Look in the
+'processors.c' file to see how they're handled.  The state of the XIO bit in
+the PSW is tracked to select the correct bank.
+
+The program will (should) compile under any GCC compiler.  It was mostly
+written under Cygwin, and checked under Linux for memory leaks with valgrind.
+It compiles cleanly under both with no warnings, and valgrind reports that all
+memory is correctly freed at the end of the run.
+
+The format for the .hint file is as follows:
+
+  <code|literal|unknown|config|eeprom> <address-start> <address-end>
+  <label> <ram|rom> <address> <label_name>
+
+Addresses are specified in hex, and may optionally be prefixed by '0x' or
+suffixed with 'h', depending on your preference.  If neither are present, the
+number is still treated as hexadecimal.
+
+Supposing we had the string 'const char *codeVersion = "V1.00";' somewhere in
+the code, and the m8cdis didn't correctly figure out from the .mp file the
+address or memory type, it could be 'hinted' at with the following two lines:
+
+code literal 02b5h 02bah
+label rom 02b5h codeVersion
+
+This, of course, supposes that the string is at address 02b5h, which may have
+been determined by looking at the hex dump of memory include in the output
+file when the -x option is supplied on the command line.
+
+Help is built-in and can be displayed with the '-h' option.
+
+Note that only the base name of the .hex, .mp or .hint file is specified.  An
+invocation might look like this:
+
+  ./m8cdis -i myproject
+
+m8cdis will look for the files myproject.hex and myproject.mp in the current
+directory.  If myproject.hint is present, it will also be loaded.
+
+-------------------------------------------------------------------------------
+
+To run valgrind with useful results:
+  valgrind --show-reachable=yes --track-origins=yes --leak-check=full <program> <arguments>
+
+Don't forget to disable the 'strip' command in the Makefile
+
+-------------------------------------------------------------------------------
+
+Notes:
+  It appears the compiler will never generate indirect accesses to CUR_PP, STK_PP
+  It also appears the compiler never modifies IDX_PP
+
