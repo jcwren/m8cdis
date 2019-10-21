@@ -854,5 +854,5 @@ int disassemDisassemble (unsigned char *memory, int memorySize, char *map, symbo
     assert (insLength);
   }
 
-  return 0;
+  return 1;
 }
