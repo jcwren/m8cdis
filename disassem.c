@@ -819,7 +819,7 @@ int disassemDisassemble (unsigned char *memory, int memorySize, char *map, symbo
 
           if (opcode > arrsizeof (instructions))
           {
-            fprintf (stderr, "Eeek!  Opcode is greater than table entries (opcode=%d, table size=%d)\n", opcode, arrsizeof (instructions));
+            fprintf (stderr, "Eeek!  Opcode is greater than table entries (opcode=%d, table size=%ld)\n", opcode, arrsizeof (instructions));
             return 0;
           }
 
