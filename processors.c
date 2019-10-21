@@ -596,12 +596,600 @@ static processor_t processorCY8C24894 =
   .config = cy8c24894Config,
 };
 
+static char *cy7c63923User [] = 
+{
+  "P0DATA",        // 0x00
+  "P1DATA",        // 0x01
+  "P2DATA",        // 0x02
+  "P3DATA",        // 0x03
+  "P4DATA",        // 0x04
+  "P00CR",         // 0x05
+  "P01CR",         // 0x06
+  "P02CR",         // 0x07
+  "P03CR",         // 0x08
+  "P04CR",         // 0x09
+  "P05CR",         // 0x0a
+  "P06CR",         // 0x0b
+  "P07CR",         // 0x0c
+  "P10CR",         // 0x0d
+  "P11CR",         // 0x0e
+  "P12CR",         // 0x0f
+  "P13CR",         // 0x10
+  "P14CR",         // 0x11
+  "P15CR",         // 0x12
+  "P16CR",         // 0x13
+  "P17CR",         // 0x14
+  "P2CR",          // 0x15
+  "P3CR",          // 0x16
+  "P4CR",          // 0x17
+  "NOT_USED",      // 0x18
+  "NOT_USED",      // 0x19
+  "NOT_USED",      // 0x1a
+  "NOT_USED",      // 0x1b
+  "NOT_USED",      // 0x1c
+  "NOT_USED",      // 0x1d
+  "NOT_USED",      // 0x1e
+  "NOT_USED",      // 0x1f
+  "FRTMRL",        // 0x20
+  "FRTMRH",        // 0x21
+  "TCAP0R",        // 0x22
+  "TCAP1R",        // 0x23
+  "TCAP0F",        // 0x24
+  "TCAP1F",        // 0x25
+  "PITMRL",        // 0x26
+  "PITMRH",        // 0x27
+  "PIRL",          // 0x28
+  "PIRH",          // 0x29
+  "TMRCR",         // 0x2a
+  "TCAPINTE",      // 0x2b
+  "TCAPINTS",      // 0x2c
+  "NOT_USED",      // 0x2d
+  "NOT_USED",      // 0x2e
+  "NOT_USED",      // 0x2f
+  "CPUCLKCR",      // 0x30
+  "ITMRCLKCR",     // 0x31
+  "CLKIOCR",       // 0x32
+  "NOT_USED",      // 0x33
+  "IOSCTR",        // 0x34
+  "XOSCTR",        // 0x35
+  "NOT_USED",      // 0x36
+  "NOT_USED",      // 0x37
+  "NOT_USED",      // 0x38
+  "OSCLCKCR",      // 0x39
+  "NOT_USED",      // 0x3a
+  "NOT_USED",      // 0x3b
+  "SPIDATA",       // 0x3c
+  "SPICR",         // 0x3d
+  "NOT_USED",      // 0x3e
+  "NOT_USED",      // 0x3f
+  "USBCR",         // 0x40
+  "EP0CNT",        // 0x41
+  "EP1CNT",        // 0x42
+  "EP2CNT",        // 0x43
+  "EP0MODE",       // 0x44
+  "EP1MODE",       // 0x45
+  "EP2MODE",       // 0x46
+  "NOT_USED",      // 0x47
+  "NOT_USED",      // 0x48
+  "NOT_USED",      // 0x49
+  "NOT_USED",      // 0x4a
+  "NOT_USED",      // 0x4b
+  "NOT_USED",      // 0x4c
+  "NOT_USED",      // 0x4d
+  "NOT_USED",      // 0x4e
+  "NOT_USED",      // 0x4f
+  "EP0DATA:0",     // 0x50
+  "EP0DATA:1",     // 0x51
+  "EP0DATA:2",     // 0x52
+  "EP0DATA:3",     // 0x53
+  "EP0DATA:4",     // 0x54
+  "EP0DATA:5",     // 0x55
+  "EP0DATA:6",     // 0x56
+  "EP0DATA:7",     // 0x57
+  "EP1DATA:0",     // 0x58
+  "EP1DATA:1",     // 0x59
+  "EP1DATA:2",     // 0x5a
+  "EP1DATA:3",     // 0x5b
+  "EP1DATA:4",     // 0x5c
+  "EP1DATA:5",     // 0x5d
+  "EP1DATA:6",     // 0x5e
+  "EP1DATA:7",     // 0x5f
+  "EP2DATA:0",     // 0x60
+  "EP2DATA:1",     // 0x61
+  "EP2DATA:2",     // 0x62
+  "EP2DATA:3",     // 0x63
+  "EP2DATA:4",     // 0x64
+  "EP2DATA:5",     // 0x65
+  "EP2DATA:6",     // 0x66
+  "EP2DATA:7",     // 0x67
+  "NOT_USED",      // 0x68
+  "NOT_USED",      // 0x69
+  "NOT_USED",      // 0x6a
+  "NOT_USED",      // 0x6b
+  "NOT_USED",      // 0x6c
+  "NOT_USED",      // 0x6d
+  "NOT_USED",      // 0x6e
+  "NOT_USED",      // 0x6f
+  "NOT_USED",      // 0x70
+  "NOT_USED",      // 0x71
+  "NOT_USED",      // 0x72
+  "VREGCR",        // 0x73
+  "USBXCR",        // 0x74
+  "NOT_USED",      // 0x75
+  "NOT_USED",      // 0x76
+  "NOT_USED",      // 0x77
+  "NOT_USED",      // 0x78
+  "NOT_USED",      // 0x79
+  "NOT_USED",      // 0x7a
+  "NOT_USED",      // 0x7b
+  "NOT_USED",      // 0x7c
+  "NOT_USED",      // 0x7d
+  "NOT_USED",      // 0x7e
+  "NOT_USED",      // 0x7f
+  "NOT_USED",      // 0x80
+  "NOT_USED",      // 0x81
+  "NOT_USED",      // 0x82
+  "NOT_USED",      // 0x83
+  "NOT_USED",      // 0x84
+  "NOT_USED",      // 0x85
+  "NOT_USED",      // 0x86
+  "NOT_USED",      // 0x87
+  "NOT_USED",      // 0x88
+  "NOT_USED",      // 0x89
+  "NOT_USED",      // 0x8a
+  "NOT_USED",      // 0x8b
+  "NOT_USED",      // 0x8c
+  "NOT_USED",      // 0x8d
+  "NOT_USED",      // 0x8e
+  "NOT_USED",      // 0x8f
+  "NOT_USED",      // 0x90
+  "NOT_USED",      // 0x91
+  "NOT_USED",      // 0x92
+  "NOT_USED",      // 0x93
+  "NOT_USED",      // 0x94
+  "NOT_USED",      // 0x95
+  "NOT_USED",      // 0x96
+  "NOT_USED",      // 0x97
+  "NOT_USED",      // 0x98
+  "NOT_USED",      // 0x99
+  "NOT_USED",      // 0x9a
+  "NOT_USED",      // 0x9b
+  "NOT_USED",      // 0x9c
+  "NOT_USED",      // 0x9d
+  "NOT_USED",      // 0x9e
+  "NOT_USED",      // 0x9f
+  "NOT_USED",      // 0xa0
+  "NOT_USED",      // 0xa1
+  "NOT_USED",      // 0xa2
+  "NOT_USED",      // 0xa3
+  "NOT_USED",      // 0xa4
+  "NOT_USED",      // 0xa5
+  "NOT_USED",      // 0xa6
+  "NOT_USED",      // 0xa7
+  "NOT_USED",      // 0xa8
+  "NOT_USED",      // 0xa9
+  "NOT_USED",      // 0xaa
+  "NOT_USED",      // 0xab
+  "NOT_USED",      // 0xac
+  "NOT_USED",      // 0xad
+  "NOT_USED",      // 0xae
+  "NOT_USED",      // 0xaf
+  "NOT_USED",      // 0xb0
+  "NOT_USED",      // 0xb1
+  "NOT_USED",      // 0xb2
+  "NOT_USED",      // 0xb3
+  "NOT_USED",      // 0xb4
+  "NOT_USED",      // 0xb5
+  "NOT_USED",      // 0xb6
+  "NOT_USED",      // 0xb7
+  "NOT_USED",      // 0xb8
+  "NOT_USED",      // 0xb9
+  "NOT_USED",      // 0xba
+  "NOT_USED",      // 0xbb
+  "NOT_USED",      // 0xbc
+  "NOT_USED",      // 0xbd
+  "NOT_USED",      // 0xbe
+  "NOT_USED",      // 0xbf
+  "NOT_USED",      // 0xc0
+  "NOT_USED",      // 0xc1
+  "NOT_USED",      // 0xc2
+  "NOT_USED",      // 0xc3
+  "NOT_USED",      // 0xc4
+  "NOT_USED",      // 0xc5
+  "NOT_USED",      // 0xc6
+  "NOT_USED",      // 0xc7
+  "NOT_USED",      // 0xc8
+  "NOT_USED",      // 0xc9
+  "NOT_USED",      // 0xca
+  "NOT_USED",      // 0xcb
+  "NOT_USED",      // 0xcc
+  "NOT_USED",      // 0xcd
+  "NOT_USED",      // 0xce
+  "NOT_USED",      // 0xcf
+  "NOT_USED",      // 0xd0
+  "NOT_USED",      // 0xd1
+  "NOT_USED",      // 0xd2
+  "NOT_USED",      // 0xd3
+  "NOT_USED",      // 0xd4
+  "NOT_USED",      // 0xd5
+  "NOT_USED",      // 0xd6
+  "NOT_USED",      // 0xd7
+  "NOT_USED",      // 0xd8
+  "NOT_USED",      // 0xd9
+  "INT_CLR0",      // 0xda
+  "INT_CLR1",      // 0xdb
+  "INT_CLR2",      // 0xdc
+  "NOT_USED",      // 0xdd
+  "INT_MSK3",      // 0xde
+  "INT_MSK2",      // 0xdf
+  "INT_MSK1",      // 0xe0
+  "INT_MSK0",      // 0xe1
+  "INT_VC",        // 0xe2
+  "RESWDT",        // 0xe3
+  "NOT_USED",      // 0xe4
+  "NOT_USED",      // 0xe5
+  "NOT_USED",      // 0xe6
+  "NOT_USED",      // 0xe7
+  "NOT_USED",      // 0xe8
+  "NOT_USED",      // 0xe9
+  "NOT_USED",      // 0xea
+  "NOT_USED",      // 0xeb
+  "NOT_USED",      // 0xec
+  "NOT_USED",      // 0xed
+  "NOT_USED",      // 0xee
+  "NOT_USED",      // 0xef
+  "NOT_USED",      // 0xf0
+  "NOT_USED",      // 0xf1
+  "NOT_USED",      // 0xf2
+  "NOT_USED",      // 0xf3
+  "NOT_USED",      // 0xf4
+  "NOT_USED",      // 0xf5
+  "NOT_USED",      // 0xf6
+  "NOT_USED",      // 0xf7
+  "NOT_USED",      // 0xf8
+  "NOT_USED",      // 0xf9
+  "NOT_USED",      // 0xfa
+  "NOT_USED",      // 0xfb
+  "NOT_USED",      // 0xfc
+  "NOT_USED",      // 0xfd
+  "NOT_USED",      // 0xfe
+  "CPU_SCR",       // 0xff
+};
+
+static char *cy7c63923Config [] =
+{
+  "NOT_USED",      // 0x00
+  "NOT_USED",      // 0x01
+  "NOT_USED",      // 0x02
+  "NOT_USED",      // 0x03
+  "NOT_USED",      // 0x04
+  "NOT_USED",      // 0x05
+  "NOT_USED",      // 0x06
+  "NOT_USED",      // 0x07
+  "NOT_USED",      // 0x08
+  "NOT_USED",      // 0x09
+  "NOT_USED",      // 0x0a
+  "NOT_USED",      // 0x0b
+  "NOT_USED",      // 0x0c
+  "NOT_USED",      // 0x0d
+  "NOT_USED",      // 0x0e
+  "NOT_USED",      // 0x0f
+  "NOT_USED",      // 0x10
+  "NOT_USED",      // 0x11
+  "NOT_USED",      // 0x12
+  "NOT_USED",      // 0x13
+  "NOT_USED",      // 0x14
+  "NOT_USED",      // 0x15
+  "NOT_USED",      // 0x16
+  "NOT_USED",      // 0x17
+  "NOT_USED",      // 0x18
+  "NOT_USED",      // 0x19
+  "NOT_USED",      // 0x1a
+  "NOT_USED",      // 0x1b
+  "NOT_USED",      // 0x1c
+  "NOT_USED",      // 0x1d
+  "NOT_USED",      // 0x1e
+  "NOT_USED",      // 0x1f
+  "NOT_USED",      // 0x20
+  "NOT_USED",      // 0x21
+  "NOT_USED",      // 0x22
+  "NOT_USED",      // 0x23
+  "NOT_USED",      // 0x24
+  "NOT_USED",      // 0x25
+  "NOT_USED",      // 0x26
+  "NOT_USED",      // 0x27
+  "NOT_USED",      // 0x28
+  "NOT_USED",      // 0x29
+  "NOT_USED",      // 0x2a
+  "NOT_USED",      // 0x2b
+  "NOT_USED",      // 0x2c
+  "NOT_USED",      // 0x2d
+  "NOT_USED",      // 0x2e
+  "NOT_USED",      // 0x2f
+  "NOT_USED",      // 0x30
+  "NOT_USED",      // 0x31
+  "NOT_USED",      // 0x32
+  "NOT_USED",      // 0x33
+  "NOT_USED",      // 0x34
+  "NOT_USED",      // 0x35
+  "NOT_USED",      // 0x36
+  "NOT_USED",      // 0x37
+  "NOT_USED",      // 0x38
+  "NOT_USED",      // 0x39
+  "NOT_USED",      // 0x3a
+  "NOT_USED",      // 0x3b
+  "NOT_USED",      // 0x3c
+  "NOT_USED",      // 0x3d
+  "NOT_USED",      // 0x3e
+  "NOT_USED",      // 0x3f
+  "NOT_USED",      // 0x40
+  "NOT_USED",      // 0x41
+  "NOT_USED",      // 0x42
+  "NOT_USED",      // 0x43
+  "NOT_USED",      // 0x44
+  "NOT_USED",      // 0x45
+  "NOT_USED",      // 0x46
+  "NOT_USED",      // 0x47
+  "NOT_USED",      // 0x48
+  "NOT_USED",      // 0x49
+  "NOT_USED",      // 0x4a
+  "NOT_USED",      // 0x4b
+  "NOT_USED",      // 0x4c
+  "NOT_USED",      // 0x4d
+  "NOT_USED",      // 0x4e
+  "NOT_USED",      // 0x4f
+  "NOT_USED",      // 0x50
+  "NOT_USED",      // 0x51
+  "NOT_USED",      // 0x52
+  "NOT_USED",      // 0x53
+  "NOT_USED",      // 0x54
+  "NOT_USED",      // 0x55
+  "NOT_USED",      // 0x56
+  "NOT_USED",      // 0x57
+  "NOT_USED",      // 0x58
+  "NOT_USED",      // 0x59
+  "NOT_USED",      // 0x5a
+  "NOT_USED",      // 0x5b
+  "NOT_USED",      // 0x5c
+  "NOT_USED",      // 0x5d
+  "NOT_USED",      // 0x5e
+  "NOT_USED",      // 0x5f
+  "NOT_USED",      // 0x60
+  "NOT_USED",      // 0x61
+  "NOT_USED",      // 0x62
+  "NOT_USED",      // 0x63
+  "NOT_USED",      // 0x64
+  "NOT_USED",      // 0x65
+  "NOT_USED",      // 0x66
+  "NOT_USED",      // 0x67
+  "NOT_USED",      // 0x68
+  "NOT_USED",      // 0x69
+  "NOT_USED",      // 0x6a
+  "NOT_USED",      // 0x6b
+  "NOT_USED",      // 0x6c
+  "NOT_USED",      // 0x6d
+  "NOT_USED",      // 0x6e
+  "NOT_USED",      // 0x6f
+  "NOT_USED",      // 0x70
+  "NOT_USED",      // 0x71
+  "NOT_USED",      // 0x72
+  "NOT_USED",      // 0x73
+  "NOT_USED",      // 0x74
+  "NOT_USED",      // 0x75
+  "NOT_USED",      // 0x76
+  "NOT_USED",      // 0x77
+  "NOT_USED",      // 0x78
+  "NOT_USED",      // 0x79
+  "NOT_USED",      // 0x7a
+  "NOT_USED",      // 0x7b
+  "NOT_USED",      // 0x7c
+  "NOT_USED",      // 0x7d
+  "NOT_USED",      // 0x7e
+  "NOT_USED",      // 0x7f
+  "NOT_USED",      // 0x80
+  "NOT_USED",      // 0x81
+  "NOT_USED",      // 0x82
+  "NOT_USED",      // 0x83
+  "NOT_USED",      // 0x84
+  "NOT_USED",      // 0x85
+  "NOT_USED",      // 0x86
+  "NOT_USED",      // 0x87
+  "NOT_USED",      // 0x88
+  "NOT_USED",      // 0x89
+  "NOT_USED",      // 0x8a
+  "NOT_USED",      // 0x8b
+  "NOT_USED",      // 0x8c
+  "NOT_USED",      // 0x8d
+  "NOT_USED",      // 0x8e
+  "NOT_USED",      // 0x8f
+  "NOT_USED",      // 0x90
+  "NOT_USED",      // 0x91
+  "NOT_USED",      // 0x92
+  "NOT_USED",      // 0x93
+  "NOT_USED",      // 0x94
+  "NOT_USED",      // 0x95
+  "NOT_USED",      // 0x96
+  "NOT_USED",      // 0x97
+  "NOT_USED",      // 0x98
+  "NOT_USED",      // 0x99
+  "NOT_USED",      // 0x9a
+  "NOT_USED",      // 0x9b
+  "NOT_USED",      // 0x9c
+  "NOT_USED",      // 0x9d
+  "NOT_USED",      // 0x9e
+  "NOT_USED",      // 0x9f
+  "NOT_USED",      // 0xa0
+  "NOT_USED",      // 0xa1
+  "NOT_USED",      // 0xa2
+  "NOT_USED",      // 0xa3
+  "NOT_USED",      // 0xa4
+  "NOT_USED",      // 0xa5
+  "NOT_USED",      // 0xa6
+  "NOT_USED",      // 0xa7
+  "NOT_USED",      // 0xa8
+  "NOT_USED",      // 0xa9
+  "NOT_USED",      // 0xaa
+  "NOT_USED",      // 0xab
+  "NOT_USED",      // 0xac
+  "NOT_USED",      // 0xad
+  "NOT_USED",      // 0xae
+  "NOT_USED",      // 0xaf
+  "NOT_USED",      // 0xb0
+  "NOT_USED",      // 0xb1
+  "NOT_USED",      // 0xb2
+  "NOT_USED",      // 0xb3
+  "NOT_USED",      // 0xb4
+  "NOT_USED",      // 0xb5
+  "NOT_USED",      // 0xb6
+  "NOT_USED",      // 0xb7
+  "NOT_USED",      // 0xb8
+  "NOT_USED",      // 0xb9
+  "NOT_USED",      // 0xba
+  "NOT_USED",      // 0xbb
+  "NOT_USED",      // 0xbc
+  "NOT_USED",      // 0xbd
+  "NOT_USED",      // 0xbe
+  "NOT_USED",      // 0xbf
+  "NOT_USED",      // 0xc0
+  "NOT_USED",      // 0xc1
+  "NOT_USED",      // 0xc2
+  "NOT_USED",      // 0xc3
+  "NOT_USED",      // 0xc4
+  "NOT_USED",      // 0xc5
+  "NOT_USED",      // 0xc6
+  "NOT_USED",      // 0xc7
+  "NOT_USED",      // 0xc8
+  "NOT_USED",      // 0xc9
+  "NOT_USED",      // 0xca
+  "NOT_USED",      // 0xcb
+  "NOT_USED",      // 0xcc
+  "NOT_USED",      // 0xcd
+  "NOT_USED",      // 0xce
+  "NOT_USED",      // 0xcf
+  "NOT_USED",      // 0xd0
+  "NOT_USED",      // 0xd1
+  "NOT_USED",      // 0xd2
+  "NOT_USED",      // 0xd3
+  "NOT_USED",      // 0xd4
+  "NOT_USED",      // 0xd5
+  "NOT_USED",      // 0xd6
+  "NOT_USED",      // 0xd7
+  "NOT_USED",      // 0xd8
+  "NOT_USED",      // 0xd9
+  "NOT_USED",      // 0xda
+  "NOT_USED",      // 0xdb
+  "NOT_USED",      // 0xdc
+  "NOT_USED",      // 0xdd
+  "NOT_USED",      // 0xde
+  "NOT_USED",      // 0xdf
+  "OSC_CR0",       // 0xe0
+  "NOT_USED",      // 0xe1
+  "NOT_USED",      // 0xe2
+  "LVDCR",         // 0xe3
+  "VLTCMP",        // 0xe4
+  "NOT_USED",      // 0xe5
+  "NOT_USED",      // 0xe6
+  "NOT_USED",      // 0xe7
+  "NOT_USED",      // 0xe8
+  "NOT_USED",      // 0xe9
+  "NOT_USED",      // 0xea
+  "ECO_TR",        // 0xeb
+  "NOT_USED",      // 0xec
+  "NOT_USED",      // 0xed
+  "NOT_USED",      // 0xee
+  "NOT_USED",      // 0xef
+  "NOT_USED",      // 0xf0
+  "NOT_USED",      // 0xf1
+  "NOT_USED",      // 0xf2
+  "NOT_USED",      // 0xf3
+  "NOT_USED",      // 0xf4
+  "NOT_USED",      // 0xf5
+  "NOT_USED",      // 0xf6
+  "NOT_USED",      // 0xf7
+  "NOT_USED",      // 0xf8
+  "NOT_USED",      // 0xf9
+  "NOT_USED",      // 0xfa
+  "NOT_USED",      // 0xfb
+  "NOT_USED",      // 0xfc
+  "NOT_USED",      // 0xfd
+  "NOT_USED",      // 0xfe
+  "NOT_USED",      // 0xff
+};
+
+static symbol_t cy7c63923SymbolsSROM [] = 
+{
+  { "SROM_Key1",      0xf8, NULL },
+  { "SROM_Key2",      0xf9, NULL },
+  { "SROM_BlockID",   0xfa, NULL },
+  { "SROM_Pointer",   0xfb, NULL },
+  { "SROM_Clock",     0xfc, NULL },
+  { "SROM_Mode",      0xfd, NULL },
+  { "SROM_Delay",     0xfe, NULL },
+  { "SROM_PCL",       0xff, NULL },
+  { NULL,             0x00, NULL }
+};
+
+static symbol_t cy7c63923SymbolsIntVectors [] =
+{
+  { "IntVec_Reset",      0x0000, NULL }, 
+  { "IntVec_POR_LVD",    0x0004, NULL }, 
+  { "IntVec_INT0",       0x0008, NULL }, 
+  { "IntVec_SPI_Empty",  0x000c, NULL }, 
+  { "IntVec_SPI_Full",   0x0010, NULL }, 
+  { "IntVec_GPIO0",      0x0014, NULL }, 
+  { "IntVec_GPIO1",      0x0018, NULL }, 
+  { "IntVec_INT1",       0x001c, NULL }, 
+  { "IntVec_USB_EP0",    0x0020, NULL }, 
+  { "IntVec_USB_EP1",    0x0024, NULL }, 
+  { "IntVec_USB_EP2",    0x0028, NULL }, 
+  { "IntVec_USB_Reset",  0x002c, NULL }, 
+  { "IntVec_USB_Active", 0x0030, NULL }, 
+  { "IntVec_MsecTimer",  0x0034, NULL }, 
+  { "IntVec_ProgTimer",  0x0038, NULL }, 
+  { "IntVec_TimerCap0",  0x003c, NULL }, 
+  { "IntVec_TimerCap1",  0x0040, NULL }, 
+  { "IntVec_TimerWrap",  0x0044, NULL }, 
+  { "IntVec_INT2",       0x0048, NULL }, 
+  { "IntVec_PS2DataLow", 0x004c, NULL }, 
+  { "IntVec_GPIO2",      0x0050, NULL }, 
+  { "IntVec_GPIO3",      0x0054, NULL }, 
+  { "IntVec_GPIO4",      0x0058, NULL }, 
+  { "IntVec_Sleep",      0x0064, NULL }, 
+  { NULL,                0x0000, NULL }
+};
+
+static mapfileExtraSymbols_t cy7c63923ExtraSymbols [] = 
+{
+  { "SROMRegisters", 0x00f8, 0x0008, MEMTYPE_RAM, ' ', cy7c63923SymbolsSROM },
+  { "IntVectors",    0x0000, 0x0068, MEMTYPE_ROM, 'I', cy7c63923SymbolsIntVectors },
+};
+
+static processor_t processorCY7C63923 =
+{
+  .name = "cy7c63923",
+  .flash = 8192,
+  .ram = 256,
+  .ioPins = 36,
+  .digitalRows = 1,
+  .digitalBlocks = 4,
+  .analogPins = 0, // ??
+  .analogOutputs = 0, // ??
+  .analogColumns = 0, // ??
+  .analogBlocks = 0, // ??
+  .hasMAC = 0, // ??
+  .extraSymbols = cy7c63923ExtraSymbols,
+  .extraSymbolsSize = arrsizeof (cy7c63923ExtraSymbols),
+  .user = cy7c63923User,
+  .config = cy7c63923Config,
+};
+
 //
 //
 //
 static processor_t *processors [] = 
 {
   &processorCY8C24894,
+  &processorCY7C63923,
   NULL
 };
 
