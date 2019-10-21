@@ -85,7 +85,8 @@ static int disassemHandlerPSW_OR (unsigned char *memory, int pc, instruction_t *
 static int disassemHandlerPSW_XOR (unsigned char *memory, int pc, instruction_t *ins);
 static int disassemHandlerRET (unsigned char *memory, int pc, instruction_t *ins);
 static int disassemHandlerAbs16 (unsigned char *memory, int pc, instruction_t *ins);
-static int disassemHandlerRel12 (unsigned char *memory, int pc, instruction_t *ins);
+static int disassemHandlerRelJump (unsigned char *memory, int pc, instruction_t *ins);
+static int disassemHandlerRelCall (unsigned char *memory, int pc, instruction_t *ins);
 
 //
 //
@@ -236,14 +237,14 @@ static instruction_t instructions [] =
   { "reti",                       10, 1, 0x7e, disassemHandlerRET },
   { "ret",                         8, 1, 0x7f, disassemHandlerRET },
 
-  { "jmp   %s",                    5, 2, 0x80, disassemHandlerRel12 },
-  { "call  %s",                   11, 2, 0x90, disassemHandlerRel12 },
-  { "jz    %s",                    5, 2, 0xa0, disassemHandlerRel12 },
-  { "jnz   %s",                    5, 2, 0xb0, disassemHandlerRel12 },
-  { "jc    %s",                    5, 2, 0xc0, disassemHandlerRel12 },
-  { "jnc   %s",                    5, 2, 0xd0, disassemHandlerRel12 },
-  { "jacc  %s",                    7, 2, 0xe0, disassemHandlerRel12 },
-  { "index %s",                   13, 2, 0xf0, disassemHandlerRel12 },
+  { "jmp   %s",                    5, 2, 0x80, disassemHandlerRelJump },
+  { "call  %s",                   11, 2, 0x90, disassemHandlerRelCall },
+  { "jz    %s",                    5, 2, 0xa0, disassemHandlerRelJump },
+  { "jnz   %s",                    5, 2, 0xb0, disassemHandlerRelJump },
+  { "jc    %s",                    5, 2, 0xc0, disassemHandlerRelJump },
+  { "jnc   %s",                    5, 2, 0xd0, disassemHandlerRelJump },
+  { "jacc  %s",                    7, 2, 0xe0, disassemHandlerRelJump },
+  { "index %s",                   13, 2, 0xf0, disassemHandlerRelCall },
 };
 
 static unsigned char curPP = 0;
@@ -649,20 +650,43 @@ static int disassemHandlerAbs16 (unsigned char *memory, int pc, instruction_t *i
   return 1;
 }
 
-static int disassemHandlerRel12 (unsigned char *memory, int pc, instruction_t *ins)
+static int disassemHandlerRelJump (unsigned char *memory, int pc, instruction_t *ins)
 {
   char *s;
   char buffer [16];
-  int offset = 2 + ((memory [pc] & 0x0f) << 8) + memory [pc + 1] - 1;
+  int offset = ((memory [pc] & 0x0f) << 8) + memory [pc + 1];
 
   if (offset > 2047)
     offset = -(0x1000 - offset);
 
   disassemPrintAddrPlusBytes (memory, pc, ins->insLength);
 
-  if (!(s = disassemSearchSymbolListROM (pc + offset)))
+  if (!(s = disassemSearchSymbolListROM (pc + 1 + offset)))
   {
-    snprintf (buffer, sizeof (buffer), "%04xh", pc + offset);
+    snprintf (buffer, sizeof (buffer), "%04xh", pc + 1 + offset);
+    s = buffer;
+  }
+
+  printf (ins->text, s);
+  disassemPrintComments ();
+
+  return 1;
+}
+
+static int disassemHandlerRelCall (unsigned char *memory, int pc, instruction_t *ins)
+{
+  char *s;
+  char buffer [16];
+  int offset = ((memory [pc] & 0x0f) << 8) + memory [pc + 1];
+
+  if (offset > 2047)
+    offset = -(0x1000 - offset);
+
+  disassemPrintAddrPlusBytes (memory, pc, ins->insLength);
+
+  if (!(s = disassemSearchSymbolListROM (pc + 2 + offset)))
+  {
+    snprintf (buffer, sizeof (buffer), "%04xh", pc + 2 + offset);
     s = buffer;
   }
 
