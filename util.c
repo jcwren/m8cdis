@@ -60,7 +60,7 @@ void utilDeleteLeadingWhiteSpace (char *s)
     p++;
 
   if (*p)
-    strcpy (s, p);
+    memcpy (s, p, strlen(p) + 1);
 }
 
 void utilDeleteTrailingWhiteSpace (char *s)

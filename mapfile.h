@@ -58,7 +58,7 @@ symbol_t  *mapfileAddToSymbolList (section_t *sl, symbol_t *symbol);
 section_t *mapfileAddToSectionList (section_t **sl, section_t *section);
 section_t *mapfileParse (char *filename);
 section_t *mapfileFindSection (section_t *sl, char *label);
-section_t *mapfileAddSpecialSymbols (section_t **sectionList, mapfileExtraSymbols_t *es);
+section_t *mapfileAddSpecialSymbols (section_t **sectionList, mapfileExtraSymbols_t *es, int numExtraSymbols);
 int        mapfileFreeSections (section_t *sectionList);
 void       mapfileDisplaySectionList (section_t *slp);
 symbol_t  *mapfileInsertSymbolSorted (symbol_t *symbolList, symbol_t *newSymbol);
