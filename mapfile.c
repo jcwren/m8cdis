@@ -349,9 +349,9 @@ section_t *mapfileFindSection (section_t *sl, char *label)
   return NULL;
 }
 
-section_t *mapfileAddSpecialSymbols (section_t **sectionList, mapfileExtraSymbols_t *es)
+section_t *mapfileAddSpecialSymbols (section_t **sectionList, mapfileExtraSymbols_t *es, int numExtraSymbols)
 {
-  while (es->label)
+  while (numExtraSymbols--)
   {
     symbol_t *symbol;
 

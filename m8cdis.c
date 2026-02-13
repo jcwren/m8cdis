@@ -321,7 +321,7 @@ int main (int argc, char **argv)
   if (!ec && !(sectionList = mapfileParse (filenameDotMp)))
     ec = 4;
 
-  if (!ec && gExtraSymbols && gProcessor && gProcessor->extraSymbols && !(sectionList = mapfileAddSpecialSymbols (&sectionList, gProcessor->extraSymbols)))
+  if (!ec && gExtraSymbols && gProcessor && gProcessor->extraSymbols && !(sectionList = mapfileAddSpecialSymbols (&sectionList, gProcessor->extraSymbols, gProcessor->extraSymbolsSize)))
     ec = 5;
 
   if (!ec && !(sectionList = hinterLoad (sectionList, filenameDotHint)))

@@ -90,7 +90,7 @@ static section_t *hinterGet (section_t *sectionList, FILE *fp)
       else
       {
         //
-        // <code|literal|unknown|config|eeprom> <address-start> <address-end> <section_name>
+        // <code|ram|literal|unknown|config|eeprom> <address-start> <address-end> <section_name>
         //
         char *startAddr = strtok (NULL, " \t");
         char *endAddr = strtok (NULL, " \t");
@@ -106,6 +106,11 @@ static section_t *hinterGet (section_t *sectionList, FILE *fp)
 
         if (!strcasecmp (action, "code"))
           section.mapFill = 'I';
+				else if (!strcasecmp (action, "ram"))
+				{
+					section.mapFill = ' ';
+					section.memtype = MEMTYPE_RAM;
+				}
         else if (!strcasecmp (action, "literal"))
           section.mapFill = 'L';
         else if (!strcasecmp (action, "config"))

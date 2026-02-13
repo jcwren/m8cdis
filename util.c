@@ -60,13 +60,13 @@ void utilDeleteLeadingWhiteSpace (char *s)
     p++;
 
   if (*p)
-    strcpy (s, p);
+    memcpy (s, p, strlen(p) + 1);
 }
 
 void utilDeleteTrailingWhiteSpace (char *s)
 {
   char *p = s + (strlen (s) - 1);
 
-  while ((p > s) && (isspace ((int) *p) || (*p == '\n') || (*p == '\r')))
+  while (p >= s && isspace ((int) *p))
     *p-- = '\0';
 }
